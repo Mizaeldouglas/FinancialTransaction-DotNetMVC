@@ -1,0 +1,23 @@
+
+@{
+    ViewData["Title"] = "Importar Transações";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Importar Transações</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Selecione o arquivo</label>
+                    <input class="form-control" type="file" id="formFile" name="file">
+                </div>
+                <button type="submit" class="btn btn-primary">Importar</button>
+            </form>
+        </div>
+    </div>
+</div>
