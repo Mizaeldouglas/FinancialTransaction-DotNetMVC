@@ -1,12 +1,16 @@
+using FinancialTransaction.App.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddLogging(loggingBuilder =>
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    loggingBuilder.AddConsole();
-    loggingBuilder.SetMinimumLevel(LogLevel.Trace);
+    if (connectionString != null) options.UseSqlServer(connectionString);
 });
+
 
 var app = builder.Build();
 

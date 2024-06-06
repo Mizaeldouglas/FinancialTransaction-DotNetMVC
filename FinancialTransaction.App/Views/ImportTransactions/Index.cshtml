@@ -1,23 +1,49 @@
-
 @{
-    ViewData["Title"] = "Importar Transações";
+ViewData["Title"] = "Importar Transações";
 }
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Importar Transações</h1>
-        </div>
+    <h1>Importar Transações</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Upload", "ImportTransactions", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Selecione o arquivo</label>
+                <input class="form-control" type="file" id="formFile" name="file">
+            </div>
+            <button type="submit" class="btn btn-primary">Importar</button>
+        </form>
+        }
     </div>
+</div>
+<hr/>
+<div class="row">
     <div class="row">
         <div class="col-md-12">
-            <form method="post" enctype="multipart/form-data">
-                <div class="mb-3">
-                    <label for="formFile" class="form-label">Selecione o arquivo</label>
-                    <input class="form-control" type="file" id="formFile" name="file">
-                </div>
-                <button type="submit" class="btn btn-primary">Importar</button>
-            </form>
+            @if (ViewBag.Transactions != null && ViewBag.Transactions.Count > 0)
+            {
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Data da Transação</th>
+                    <th scope="col">Data da Importação</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var transaction in ViewBag.Transactions)
+                {
+                <tr>
+                    <td>@transaction.TransactionDate.ToString("dd/MM/yyyy")</td>
+                    <td>@transaction.ImportDateTime.ToString("dd/MM/yyyy - HH:mm:ss")</td>
+                </tr>
+                }
+                </tbody>
+            </table>
+            }
         </div>
     </div>
 </div>
