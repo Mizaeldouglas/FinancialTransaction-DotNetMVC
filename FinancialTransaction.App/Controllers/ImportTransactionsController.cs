@@ -19,11 +19,12 @@ public class ImportTransactionsController : Controller
     public ActionResult Index()
     {
         var importHistories = _context.ImportHistories
-            .OrderByDescending(h => h.ImportDateTime) // Ordenar pela data mais recente
-            .ToList(); // Obter todas as importações como uma lista
+            .OrderByDescending(h => h.ImportDateTime)
+            .ToList(); 
+        
         var transactions = _context.Transactions
-            .OrderByDescending(t => t.ImportDateTime) // Ordenar pela data da importação
-            .ThenByDescending(t => t.TransactionDate) // E depois pela data da transação
+            .OrderByDescending(t => t.ImportDateTime) 
+            .ThenByDescending(t => t.TransactionDate) 
             .ToList();
 
         ViewBag.ImportHistories = importHistories;
@@ -47,7 +48,7 @@ public class ImportTransactionsController : Controller
         }
 
         bool isFirstTransaction = true;
-        DateTime transactionDate = DateTime.MinValue; // Inicializar com valor mínimo
+        DateTime transactionDate = DateTime.MinValue;
         
 
         try
@@ -121,17 +122,17 @@ public class ImportTransactionsController : Controller
                     _context.Transactions.Add(transaction);
                 }
 
-                _context.SaveChanges(); // Salvar todas as transações válidas
+                _context.SaveChanges(); 
             }
             var importHistory = new ImportHistory
             {
                 ImportDateTime = DateTime.Now,
-                FileName = file.FileName // Opcional: salvar o nome do arquivo
+                FileName = file.FileName 
             };
             _context.ImportHistories.Add(importHistory);
-            _context.SaveChanges(); // Salvar o histórico
+            _context.SaveChanges(); 
 
-            return RedirectToAction("Index", new { message = "Transactions importadas com sucesso!" });
+            return RedirectToAction("Index");
         }
         catch (Exception ex)
         {

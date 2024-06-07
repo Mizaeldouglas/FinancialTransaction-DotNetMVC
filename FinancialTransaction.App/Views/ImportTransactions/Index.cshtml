@@ -4,46 +4,66 @@ ViewData["Title"] = "Importar Transações";
 
 <div class="container">
     <h1>Importar Transações</h1>
-</div>
 
-<div class="row">
-    <div class="col-md-12">
-        @using (Html.BeginForm("Upload", "ImportTransactions", FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
-        <form method="post" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="formFile" class="form-label">Selecione o arquivo</label>
-                <input class="form-control" type="file" id="formFile" name="file">
-            </div>
-            <button type="submit" class="btn btn-primary">Importar</button>
-        </form>
-        }
-    </div>
-</div>
-<hr/>
-<div class="row">
+    
+
     <div class="row">
         <div class="col-md-12">
-            @if (ViewBag.Transactions != null && ViewBag.Transactions.Count > 0)
+            @using (Html.BeginForm("Upload", "ImportTransactions", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">Data da Transação</th>
-                    <th scope="col">Data da Importação</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach (var transaction in ViewBag.Transactions)
-                {
-                <tr>
-                    <td>@transaction.TransactionDate.ToString("dd/MM/yyyy")</td>
-                    <td>@transaction.ImportDateTime.ToString("dd/MM/yyyy - HH:mm:ss")</td>
-                </tr>
-                }
-                </tbody>
-            </table>
+                <form method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Selecione o arquivo</label>
+                        <input class="form-control" type="file" id="formFile" name="file">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Importar</button>
+                </form>
             }
+        </div>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#importModal">
+        Ver Histórico
+    </button>
+
+    @* Modal *@
+    <div class="modal fade" id="importModal" tabindex="-1" aria-labelledby="importModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="importModalLabel">Histórico de Importações</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @* Aqui você colocará o conteúdo do modal *@
+                    @if (ViewBag.ImportHistories != null && ViewBag.ImportHistories.Count > 0)
+                    {
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Data da Transação</th>
+                            <th scope="col">Data da Importação</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var transaction in ViewBag.Transactions)
+                        {
+                        <tr>
+                            <td>@transaction.TransactionDate.ToString("dd/MM/yyyy - HH:mm:ss")</td>
+                            <td>@transaction.ImportDateTime.ToString("dd/MM/yyyy - HH:mm:ss")</td>
+                        </tr>
+                        }
+                        </tbody>
+                    </table>
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

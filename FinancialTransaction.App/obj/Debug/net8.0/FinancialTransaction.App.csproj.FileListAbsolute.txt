@@ -25,6 +25,7 @@
 /Users/mizaeldouglasmello/Programação/WorkSpace-DotNet/Projetos/FinancialTransaction-desafioAlura/FinancialTransaction/FinancialTransaction.App/obj/Debug/net8.0/FinancialTransaction.App.dll
 /Users/mizaeldouglasmello/Programação/WorkSpace-DotNet/Projetos/FinancialTransaction-desafioAlura/FinancialTransaction/FinancialTransaction.App/obj/Debug/net8.0/refint/FinancialTransaction.App.dll
 /Users/mizaeldouglasmello/Programação/WorkSpace-DotNet/Projetos/FinancialTransaction-desafioAlura/FinancialTransaction/FinancialTransaction.App/obj/Debug/net8.0/FinancialTransaction.App.pdb
+/Users/mizaeldouglasmello/Programação/WorkSpace-DotNet/Projetos/FinancialTransaction-desafioAlura/FinancialTransaction/FinancialTransaction.App/obj/Debug/net8.0/FinancialTransaction.App.sourcelink.json
 /Users/mizaeldouglasmello/Programação/WorkSpace-DotNet/Projetos/FinancialTransaction-desafioAlura/FinancialTransaction/FinancialTransaction.App/bin/Debug/net8.0/FinancialTransaction.App.deps.json
 /Users/mizaeldouglasmello/Programação/WorkSpace-DotNet/Projetos/FinancialTransaction-desafioAlura/FinancialTransaction/FinancialTransaction.App/bin/Debug/net8.0/FinancialTransaction.App.runtimeconfig.json
 /Users/mizaeldouglasmello/Programação/WorkSpace-DotNet/Projetos/FinancialTransaction-desafioAlura/FinancialTransaction/FinancialTransaction.App/bin/Debug/net8.0/Azure.Core.dll
@@ -250,4 +251,3 @@
 /Users/mizaeldouglasmello/Programação/WorkSpace-DotNet/Projetos/FinancialTransaction-desafioAlura/FinancialTransaction/FinancialTransaction.App/obj/Debug/net8.0/Financia.1FEC3C74.Up2Date
 /Users/mizaeldouglasmello/Programação/WorkSpace-DotNet/Projetos/FinancialTransaction-desafioAlura/FinancialTransaction/FinancialTransaction.App/obj/Debug/net8.0/FinancialTransaction.App.genruntimeconfig.cache
 /Users/mizaeldouglasmello/Programação/WorkSpace-DotNet/Projetos/FinancialTransaction-desafioAlura/FinancialTransaction/FinancialTransaction.App/obj/Debug/net8.0/ref/FinancialTransaction.App.dll
-/Users/mizaeldouglasmello/Programação/WorkSpace-DotNet/Projetos/FinancialTransaction-desafioAlura/FinancialTransaction/FinancialTransaction.App/obj/Debug/net8.0/FinancialTransaction.App.sourcelink.json
