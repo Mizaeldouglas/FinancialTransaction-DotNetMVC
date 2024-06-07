@@ -1,0 +1,85 @@
+@model User
+
+@{
+    ViewData["Title"] = "Usuários";
+}
+
+<div class="modal fade" id="createUserModal" tabindex="-1" aria-labelledby="createUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createUserModalLabel">Novo Usuário</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("Create", "User", FormMethod.Post, new { id = "createUserForm" }))
+                {
+                    <div class="mb-3">
+                        <partial name="Create"/>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="updateUserModal" tabindex="-1" aria-labelledby="updateUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateUserModalLabel">Editar Usuário</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("Edit", "User", FormMethod.Post, new { id = "updateUserForm" }))
+                {
+                <div class="mb-3">
+                    <partial name="Edit"/>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1 class="d-flex justify-content-center">Lista de Usuario</h1>
+<hr/>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createUserModal">Novo Usuário</button>
+    </div>
+</div>
+<br>
+<br>
+
+<div class="row">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">NOME</th>
+                    <th scope="col">EMAIL</th>
+                    <th scope="col">AÇÃO</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var user in ViewBag.Users)
+                {
+                    <tr>
+                        <td>@user.Id</td>
+                        <td>@user.Name</td>
+                        <td>@user.Email</td>
+                        <td>
+                            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#updateUserModal">Editar</button>
+                            <button type="button" class="btn btn-danger">Remover</button>
+                        </td>
+                    </tr> 
+                }
+                
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
